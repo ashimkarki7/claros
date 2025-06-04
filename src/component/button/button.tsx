@@ -12,7 +12,6 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   disabled = false,
 }) => {
-  console.log(className);
   return (
     <>
       <button

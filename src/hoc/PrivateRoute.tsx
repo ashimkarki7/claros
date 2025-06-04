@@ -1,10 +1,23 @@
-import { Navigate } from 'react-router-dom';
-
 import type { JSX } from 'react';
+import { useAppSelector } from '@store/reduxHook.ts';
+import { useNavigate, Navigate } from 'react-router-dom';
+import { PageLayout } from '@component/pagelayout/PageLayout.tsx';
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
-  const user = {};
-  return user ? children : <Navigate to="/Login" />;
+  const navigate = useNavigate();
+
+  const currentUser = useAppSelector(
+    (state) => state?.rootReducer?.user?.currentUser
+  );
+  if (!currentUser) {
+    navigate('/');
+  }
+
+  return currentUser ? (
+    <PageLayout>{children}</PageLayout>
+  ) : (
+    <Navigate to={'/'} />
+  );
 };
 
 export default PrivateRoute;

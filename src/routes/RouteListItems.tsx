@@ -20,4 +20,12 @@ export const mainRoutesList: RouteItem[] = [
     exact: true,
     isPrivate: false,
   },
+  {
+    key: 3,
+    name: 'Not Found',
+    path: '*',
+    LazyComponent: lazy(() => import('@pages/NotFound/NotFound.tsx')),
+    exact: true,
+    isPrivate: false,
+  },
 ];
