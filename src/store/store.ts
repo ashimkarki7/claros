@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -8,15 +8,14 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import userReducer from '@/pages/Login/slice.ts';
-import { combineReducers } from "redux";
-
+import { combineReducers } from 'redux';
 
 const userPersistConfig = {
-  key: "user",
+  key: 'user',
   storage,
 };
 

@@ -1,4 +1,4 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 export interface User {
   id: string;
@@ -16,7 +16,7 @@ const initialState: UserState = {
 };
 
 export const userSlice = createSlice({
-  name: "userSlice",
+  name: 'userSlice',
   initialState,
   reducers: {
     signUp(state, action: PayloadAction<User>) {
@@ -25,11 +25,11 @@ export const userSlice = createSlice({
     signIn(state, action: PayloadAction<{ id: string; password: string }>) {
       const user = state.users.find(
         (u) =>
-          u.id === action.payload.id && u.password === action.payload.password,
+          u.id === action.payload.id && u.password === action.payload.password
       );
       if (user) {
         state.currentUser = user.id;
-        localStorage.setItem("auth_token", user.id);
+        localStorage.setItem('auth_token', user.id);
       }
     },
     signOut(state) {

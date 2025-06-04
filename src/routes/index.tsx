@@ -1,11 +1,7 @@
-import { mainRoutes } from "@/routes/MainRoutes.tsx";
+import { mainRoutes } from '@/routes/MainRoutes.tsx';
 
 const AppRoutes = () => {
-    return (
-        <>
-            {mainRoutes}
-        </>
-    );
+  return <>{mainRoutes}</>;
 };
 
 export default AppRoutes;

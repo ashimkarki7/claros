@@ -1,7 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface IState {
   hasError: boolean;
@@ -28,10 +26,10 @@ export class ErrorBoundary extends React.Component<any, IState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div >
+        <div>
           <h1>Something went wrong</h1>
           <Link to="/" className="link__goback">
-         Go to home page
+            Go to home page
           </Link>
         </div>
       );

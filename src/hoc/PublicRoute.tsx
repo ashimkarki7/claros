@@ -1,13 +1,11 @@
-import type {JSX} from 'react';
+import type { JSX } from 'react';
 
 interface RoleBasedRouteProps {
-    children: JSX.Element;
+  children: JSX.Element;
 }
 
 const PublicBasedRoute = ({ children }: RoleBasedRouteProps) => {
-
-
-    return children;
+  return children;
 };
 
 export default PublicBasedRoute;
