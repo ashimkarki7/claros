@@ -1,12 +1,14 @@
 import React, { type MouseEvent } from 'react';
 type ButtonProps = {
-  title: string;
+  hasIconOnly?: boolean;
+  title?: string;
   onClickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
   disabled?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = ({
+  hasIconOnly,
   title,
   onClickHandler,
   className = '',
@@ -21,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
           onClickHandler(event)
         }
       >
-        {title}
+        {hasIconOnly ? <i className={title}></i> : title}
       </button>
     </>
   );

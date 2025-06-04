@@ -1,7 +1,7 @@
 import { type FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@component/button/button.tsx';
-import type {IObjectLiteral} from '@/types/type';
+import type { IObjectLiteral } from '@/types/type';
 
 interface LoginFormProps {
   users?: any;
@@ -12,36 +12,34 @@ interface LoginFormProps {
 const Login: FC<LoginFormProps> = (props) => {
   const navigate = useNavigate();
   const { signUp, signIn, users } = props;
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
+  const [id, setId] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const handleSubmit = () => {
-
-    if (!id || !password) return alert("All fields required");
+    if (!id || !password) return alert('All fields required');
 
     if (isSignUp) {
       if (
-          users?.users?.length > 0 &&
-          users?.users?.find((user: IObjectLiteral) => user.id === id)
+        users?.users?.length > 0 &&
+        users?.users?.find((user: IObjectLiteral) => user.id === id)
       ) {
-        return alert("User already exists");
+        return alert('User already exists');
       }
       signUp({ id, password });
-      alert("User registered. You can now log in.");
+      alert('User registered. You can now log in.');
       setIsSignUp(false);
     } else {
       const checkUserExist = users?.users?.find(
-          (usersItems: IObjectLiteral) => usersItems?.id === id && usersItems?.password === password,
+        (usersItems: IObjectLiteral) =>
+          usersItems?.id === id && usersItems?.password === password
       );
       signIn({ id, password });
       if (checkUserExist) {
-        navigate('/dashboard')
+        navigate('/dashboard');
       } else {
-        alert("Invalid credentials");
+        alert('Invalid credentials');
       }
     }
-
-
   };
 
   return (

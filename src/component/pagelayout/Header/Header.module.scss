@@ -1,0 +1,26 @@
+.navbarCustom {
+  background-color: #fff;
+  border-bottom: 1px solid #dee2e6;
+  z-index: 1030;
+  padding: 0;
+}
+
+.topBar {
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & .logoTopbar {
+    background-color: #2a3042;
+    padding: 0.4rem 1rem;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  & .logoTopBarAction {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+}

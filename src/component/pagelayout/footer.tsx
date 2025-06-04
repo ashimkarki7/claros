@@ -1,13 +1,7 @@
 import { Fragment } from 'react';
 
 const Footer = () => {
-  return (
-    <Fragment>
-      <div>
-        <p> Beoulf. All rights reserved.</p>
-      </div>
-    </Fragment>
-  );
+  return <Fragment></Fragment>;
 };
 
 export default Footer;

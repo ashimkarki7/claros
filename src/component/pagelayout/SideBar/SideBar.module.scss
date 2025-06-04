@@ -1,0 +1,32 @@
+.sidebar {
+  background-color: #313a46;
+  color: white;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  width: 240px;
+
+  a {
+    color: rgb(131, 145, 162);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    &:hover,
+    :global(.active) {
+      color: #fff;
+      background-color: #3e4459 !important;
+      border-radius: 5px;
+    }
+  }
+
+  :global(.active) {
+    background-color: #3e4459 !important;
+    color: #fff;
+    border-radius: 5px;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    min-height: auto;
+    padding: 1rem;
+  }
+}
