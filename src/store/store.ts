@@ -11,7 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-import userReducer from '@/component/login/slice.ts';
+import userReducer from '@/pages/Login/slice.ts';
 import { combineReducers } from "redux";
 
 
