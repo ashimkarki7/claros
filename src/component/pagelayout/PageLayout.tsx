@@ -5,7 +5,7 @@ import PageLayoutStyles from '@component/pagelayout/pageLayout.module.scss';
 
 export const PageLayout = (props: any) => {
   return (
-    <div id="PageLayout" className={'d-flex wrapper'}>
+    <div id="PageLayout" className={'d-flex flex-column flex-md-row'}>
       <Sidebar />
       <div className={PageLayoutStyles?.mainWrapper}>
         <Header />

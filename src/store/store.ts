@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import userReducer from '@/pages/Login/slice.ts';
+import characterReducer from '@/pages/Dashboard/slice.ts';
 import { combineReducers } from 'redux';
 
 const userPersistConfig = {
@@ -21,6 +22,7 @@ const userPersistConfig = {
 
 const rootReducer = combineReducers({
   user: persistReducer(userPersistConfig, userReducer),
+  character: characterReducer,
 });
 
 export const store = configureStore({

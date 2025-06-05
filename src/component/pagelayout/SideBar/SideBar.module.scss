@@ -25,8 +25,14 @@
   }
 
   @media (max-width: 768px) {
+    width: 200px;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+
+  @media (max-width: 576px) {
     width: 100%;
-    min-height: auto;
+    min-height: 20vh;
     padding: 1rem;
   }
 }
