@@ -1,7 +1,7 @@
 import Header from '@component/pagelayout/Header/Header.tsx';
 import Sidebar from '@component/pagelayout/SideBar/Sidebar.tsx';
 import Footer from '@component/pagelayout/footer.tsx';
-import PageLayoutStyles from '@component/pagelayout/pageLayout.module.scss';
+import PageLayoutStyles from './PageLayout.module.scss';
 
 export const PageLayout = (props: any) => {
   return (
