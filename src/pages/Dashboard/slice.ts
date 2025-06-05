@@ -16,14 +16,22 @@ const initialState: CharacterState = {
 export const fetchCharacters = createAsyncThunk(
   'characters/fetch',
   (formData: any, { rejectWithValue }) => {
-    const pageNo =
-      formData?.pageNo && formData?.pageNo !== 'undefined'
-        ? `?pageNo=${formData?.pageNo}`
-        : '1';
+    let queryParams = '';
+    Object.keys(formData).forEach((key) => {
+      switch (key) {
+        case 'page': {
+          if (formData[key]) queryParams += `page=${formData[key]}`;
+          break;
+        }
+        case 'name': {
+          if (formData[key])
+            queryParams += `&name=${encodeURIComponent(formData[key])}`;
+          break;
+        }
+      }
+    });
 
-    return v2Fetch(
-      `https://rickandmortyapi.com/api/character?page=${pageNo?.trim()}`
-    )
+    return v2Fetch(`https://rickandmortyapi.com/api/character?${queryParams}`)
       .then((response: any) => {
         if (response.status === 200) {
           return Promise.resolve(response?.data);

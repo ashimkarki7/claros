@@ -1,6 +1,8 @@
 import DashboardStyles from './Dashboard.module.scss';
-import { type FC, useEffect } from 'react';
+import { type FC, useEffect, useState } from 'react';
 import type { IObjectLiteral } from '@/types/type.ts';
+import Search from '@component/search';
+import Button from '@component/button';
 
 interface LoginFormProps {
   users?: IObjectLiteral;
@@ -10,10 +12,22 @@ interface LoginFormProps {
 
 const Dashboard: FC<LoginFormProps> = (props: any) => {
   const { fetchCharacters, characters } = props;
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    fetchCharacters();
+    fetchCharacters({
+      page: page,
+    });
   }, []);
+
+  const onSearch = () => {
+    setPage(1);
+    fetchCharacters({
+      page: 1,
+      name: searchTerm,
+    });
+  };
 
   return (
     <div className="container-fluid mt-3">
@@ -22,12 +36,31 @@ const Dashboard: FC<LoginFormProps> = (props: any) => {
           <h4>Characters</h4>
           <div className="row mb-3" id={'SearchContainer'}>
             <div className="col-md-6">
-              <input
-                type="text"
-                id="searchInput"
-                className="form-control"
-                placeholder="Search by name"
-              />
+              <div
+                className={`input-group ${DashboardStyles.customSearchGroup}`}
+              >
+                <span className="input-group-text bg-light border-0">
+                  <i className="bi bi-search  text-muted"></i>
+                </span>
+
+                <Search
+                  value={searchTerm}
+                  onChangeHandler={(value: IObjectLiteral) => {
+                    setSearchTerm(value?.target?.value);
+                  }}
+                  title={'characters'}
+                  type="text"
+                  className="form-control"
+                  placeholder={'Search by name'}
+                />
+                <Button
+                  onClickHandler={() => {
+                    onSearch();
+                  }}
+                  title={'Search'}
+                  className={`btn  ${DashboardStyles?.btnSearch}`}
+                />
+              </div>
             </div>
           </div>
           <div className="table-responsive">

@@ -1,11 +1,5 @@
 import React, { type MouseEvent } from 'react';
-type ButtonProps = {
-  hasIconOnly?: boolean;
-  title?: string;
-  onClickHandler: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  className?: string;
-  disabled?: boolean;
-};
+import type { ButtonProps } from './types.ts';
 
 const Button: React.FC<ButtonProps> = ({
   hasIconOnly,
