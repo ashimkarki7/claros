@@ -1,17 +1,10 @@
 import { type FC, useEffect } from 'react';
 import DashboardStyles from './Data.module.scss';
 import image from '../../assets/avatar-2.jpg';
-import type { IObjectLiteral } from '@/types/type.ts';
-
-interface DataProps {
-  episode?: IObjectLiteral;
-  fetchEpisodeByID: (formData: IObjectLiteral) => void;
-  cleanEpisodeID: () => void;
-}
+import type { DataProps } from '@pages/Data/type.ts';
 
 const Data: FC<DataProps> = (props) => {
   const { fetchEpisodeByID, episode, cleanEpisodeID } = props;
-  console.log('fwwwwwf', episode);
   useEffect(() => {
     fetchEpisodeByID({
       id: 1,

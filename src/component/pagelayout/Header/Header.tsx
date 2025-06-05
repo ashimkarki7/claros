@@ -1,9 +1,9 @@
-import HeaderStyles from './Header.module.scss';
 import { useLocation } from 'react-router';
-import Button from '@component/button';
 import { useAppDispatch } from '@store/reduxHook.ts';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from '@pages/Login/slice.ts';
+import Button from '@component/button';
+import HeaderStyles from './Header.module.scss';
 
 const Header = () => {
   const router = useLocation();

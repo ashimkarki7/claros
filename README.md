@@ -6,6 +6,10 @@ local storage from the browser, and register a new user.
 
 Added husky to automate prettier and linting on commits.
 
+# deployed links on vercel
+
+https://claros-mu.vercel.app/
+
 # scripts
 
 - "dev": "vite", **run app**

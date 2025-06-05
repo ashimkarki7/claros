@@ -5,14 +5,7 @@ import Search from '@component/search';
 import Button from '@component/button';
 import TableComponent from '@component/table';
 import { characterTableHeaders } from '@pages/Dashboard/enum/characterEnum.tsx';
-
-interface DashboardProps {
-  users?: IObjectLiteral;
-  characters?: IObjectLiteral;
-  charactersLoading?: boolean;
-  fetchCharacters: (formData: IObjectLiteral) => void;
-  cleanCharacter: () => void;
-}
+import type { DashboardProps } from '@pages/Dashboard/type.ts';
 
 const Dashboard: FC<DashboardProps> = (props: any) => {
   const { fetchCharacters, characters, cleanCharacter, charactersLoading } =

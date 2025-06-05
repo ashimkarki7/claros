@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
-import type { RouteItem } from '@/routes/routes.ts';
 import { Routes, Route } from 'react-router-dom';
-import PrivateRoute from '../hoc/PrivateRoute';
+import PrivateRoute from '../hoc/PrivateRoute.tsx';
 import { mainRoutesList } from './RouteListItems.tsx';
 import PublicBasedRoute from '../hoc/PublicRoute.tsx';
+import type { RouteItem } from '@routes/routes.ts';
 
 const parseRoutes = (routeList: RouteItem[]): ReactNode => (
   <Routes>

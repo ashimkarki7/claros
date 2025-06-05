@@ -2,12 +2,7 @@ import { type FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@component/button/button.tsx';
 import type { IObjectLiteral } from '@/types/type';
-
-interface LoginFormProps {
-  users?: any;
-  signUp: (formData?: any) => void;
-  signIn: (formData?: any) => void;
-}
+import type { LoginFormProps } from '@pages/Login/type.ts';
 
 const Login: FC<LoginFormProps> = (props) => {
   const navigate = useNavigate();
