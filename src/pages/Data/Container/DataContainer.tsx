@@ -9,7 +9,11 @@ const DataContainer = (props: IObjectLiteral) => {
     (state) => state?.rootReducer?.episode?.payload
   );
 
-  props = { ...props, episode };
+  const episodeError = useAppSelector(
+    (state) => state?.rootReducer?.episode?.error
+  );
+
+  props = { ...props, episode, episodeError };
 
   const fetchEpisodeByID = (formData: any): any => {
     return dispatch(dataSlice.fetchEpisodeByID(formData));

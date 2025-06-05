@@ -2,6 +2,7 @@ import type { ChangeEvent } from 'react';
 import type { IObjectLiteral, mainHeaders } from '@/types/type.ts';
 
 export type TableProps = {
+  errors?: IObjectLiteral;
   rowData?: IObjectLiteral[];
   headers?: mainHeaders[];
   tableStyles?: IObjectLiteral;

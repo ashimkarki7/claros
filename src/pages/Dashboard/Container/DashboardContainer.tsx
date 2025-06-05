@@ -9,11 +9,15 @@ const DashboardContainer = (props: IObjectLiteral) => {
   const characters = useAppSelector(
     (state) => state?.rootReducer?.character?.payload
   );
+  const charactersError = useAppSelector(
+    (state) => state?.rootReducer?.character?.error
+  );
+
   const charactersLoading = useAppSelector(
     (state) => state?.rootReducer?.character?.loading
   );
 
-  props = { ...props, users, characters, charactersLoading };
+  props = { ...props, users, characters, charactersLoading, charactersError };
 
   const fetchCharacters = (formData: any): any => {
     return dispatch(leadFormSlice.fetchCharacters(formData));

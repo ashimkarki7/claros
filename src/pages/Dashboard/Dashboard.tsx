@@ -8,8 +8,13 @@ import { characterTableHeaders } from '@pages/Dashboard/enum/characterEnum.tsx';
 import type { DashboardProps } from '@pages/Dashboard/type.ts';
 
 const Dashboard: FC<DashboardProps> = (props: any) => {
-  const { fetchCharacters, characters, cleanCharacter, charactersLoading } =
-    props;
+  const {
+    fetchCharacters,
+    characters,
+    cleanCharacter,
+    charactersLoading,
+    charactersError,
+  } = props;
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [page, setPage] = useState<number>(1);
 
@@ -79,6 +84,7 @@ const Dashboard: FC<DashboardProps> = (props: any) => {
           </div>
           <div className="table-responsive">
             <TableComponent
+              errors={charactersError}
               loading={charactersLoading}
               rowData={characters?.results}
               headers={characterTableHeaders}

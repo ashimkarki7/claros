@@ -3,6 +3,7 @@ import type { TableProps } from './types.ts';
 import type { IObjectLiteral, mainHeaders } from '@/types/type.ts';
 
 const TableComponent: React.FC<TableProps> = ({
+  errors,
   rowData,
   headers,
   tableStyles,
@@ -19,6 +20,15 @@ const TableComponent: React.FC<TableProps> = ({
         </tr>
       </thead>
       <tbody>
+        {errors && typeof errors === 'string' && (
+          <tr key={'containerLoader'}>
+            <td key={'loader'} colSpan={headers?.length}>
+              <div className=" text-center py-5">
+                <h4>{`${errors}`}</h4>
+              </div>{' '}
+            </td>
+          </tr>
+        )}
         {loading && (
           <tr key={'containerLoader'}>
             <td key={'loader'} colSpan={headers?.length}>
