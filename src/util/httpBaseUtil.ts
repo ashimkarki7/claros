@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const httpBase = () => {
-  const baseURL3001 = 'https://';
+  const baseURL3001 = `${import.meta.env.VITE_API_BASE_URL}`;
 
   const V2Headers = {
     Accept: '**',

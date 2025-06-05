@@ -20,11 +20,13 @@ const TableComponent: React.FC<TableProps> = ({
       </thead>
       <tbody>
         {loading && (
-          <td key={'loader'} colSpan={headers?.length}>
-            <div className=" text-center py-5">
-              <div className="spinner-border" role="status"></div>
-            </div>{' '}
-          </td>
+          <tr key={'containerLoader'}>
+            <td key={'loader'} colSpan={headers?.length}>
+              <div className=" text-center py-5">
+                <div className="spinner-border" role="status"></div>
+              </div>{' '}
+            </td>
+          </tr>
         )}
         {!loading &&
           rowData?.map((charactersRes: IObjectLiteral, index: number) => {
