@@ -1,11 +1,23 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Register Your user Once the user is Registered it will be stored in local storage by reducer ,
+until clearing the local host itself. if the user related login issue is found then clear the
+local storage from the browser, and register a new user.
 
-Currently, two official plugins are available:
+Added husky to automate prettier and linting on commits.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# scripts
+
+- "dev": "vite", **run app**
+- "build": "tsc -b && vite build", **build app**
+- "lint": "eslint .", **linter app**
+- "preview": "vite preview",
+- "format": "prettier --write .", **formating to global pattern app**
+- "prepare": "husky", **Run Shell Scripts before Commiting**
+
+# Deployment Check
+
+npx vite build for vercel to test Deployment
 
 ## Expanding the ESLint configuration
 
