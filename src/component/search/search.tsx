@@ -1,4 +1,4 @@
-import React, { type ChangeEvent, type KeyboardEvent } from 'react';
+import React, { type ChangeEvent } from 'react';
 import type { SearchProps } from './types.ts';
 const Search: React.FC<SearchProps> = ({
   value,
