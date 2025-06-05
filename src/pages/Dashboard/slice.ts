@@ -1,11 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { v2Fetch } from '@/util/httpUtil.ts';
-
-interface CharacterState {
-  payload: any[];
-  error: any;
-  loading: boolean;
-}
+import { v2Fetch } from '@/util/httpUtil';
+import type { CharacterState } from '@/types/type';
 
 const initialState: CharacterState = {
   payload: [],
@@ -70,7 +65,7 @@ export const characterSlice = createSlice({
     builder.addCase(fetchCharacters.rejected, (state, action) => {
       state.loading = false;
       state.payload = [];
-      state.error = action.payload;
+      state.error = action.payload ?? { message: 'Unknown error' };
     });
   },
 });

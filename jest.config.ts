@@ -1,12 +1,23 @@
 export default {
-  testEnvironment: 'jsdom',
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  collectCoverage: true,
+  // collectCoverageFrom: ['src/**/*.{ts,jsx,tsx}', '!src/pages/EmployerHome/component'],
+  coverageDirectory: 'coverage',
+  testPathIgnorePatterns: ['src/pages/HomePage/component'],
+  coveragePathIgnorePatterns: ['src/pages/HomePage/component'],
+  // 'ts-jest': {
+  //   diagnostics: {
+  //     exclude: ['**']
+  //   }
+  // },
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
+  rootDir: './',
   moduleNameMapper: {
-    '\\.(css|scss)$': 'identity-obj-proxy',
     '^@/(.*)$': '<rootDir>/src/$1',
+    '\\.(css|less|scss|sss|styl)$': '<rootDir>/node_modules/jest-css-modules',
   },
-  setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
-  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  setupFiles: ['<rootDir>/jest.setup.ts'],
 };

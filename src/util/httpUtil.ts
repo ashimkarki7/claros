@@ -1,4 +1,4 @@
-import { httpBase } from './httpBaseUtil.ts';
+import { httpBase } from './httpBaseUtil';
 import type { IObjectLiteral } from '@/types/type.ts';
 
 export function v2Fetch(endpoint: string) {

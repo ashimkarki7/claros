@@ -1,14 +1,44 @@
 # React + TypeScript + Vite
 
-Register Your user Once the user is Registered it will be stored in local storage by reducer ,
-until clearing the local host itself. if the user related login issue is found then clear the
-local storage from the browser, and register a new user.
+- (https://claros-mu.vercel.app/) vercel link
+- create .env file and add : VITE_API_BASE_URL=https://rickandmortyapi.com/api
+- node version -v20.9.0
+- use npm install
+- Once in Login Page, Register user and sign in using given credentials (duplicate Registered not-checked).
+- # if issue occurs during login clear local storage.
+- # credentials will be stored in local storage by reducer persist (clearing local storage reset's credential)
 
 Added husky to automate prettier and linting on commits.
 
 # deployed links on vercel
 
-https://claros-mu.vercel.app/
+- (https://claros-mu.vercel.app/)
+
+## Features
+
+- Bootstrap 5
+- Sidebar (Home, Data)
+- API integration from https://rickandmortyapi.com/documentation/#rest
+- Table with pagination, search, and loading state
+- Redux Toolkit and Thunk Action for state management , persisting User Credentials, non-persisting app Data
+  Table (clears on local storage reset)
+
+- CI/CD Added with Vercel and Update vercel.js to match client routing
+- Error handling for all API calls
+- Re- ducks Pattern for Redux Toolkit
+- husky to automate prettier and linting on commits
+
+## Project Structure
+
+# public/Contains static assets like favicon, images.
+
+# components/ Reusable UI components.
+
+# pages/ Page-level route views (Containers,slice,Component)
+
+# store/ Redux Toolkit and Configuration.
+
+# util// helpers currently for network.
 
 # scripts
 

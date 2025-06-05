@@ -6,3 +6,18 @@ export interface IObjectLiteral<T = VariableLiteral> {
 export interface mainHeaders {
   name: string;
 }
+
+export interface Character {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  gender: string;
+  image: string;
+}
+
+export interface CharacterState {
+  payload: Character[];
+  loading: boolean;
+  error: string | {} | null;
+}

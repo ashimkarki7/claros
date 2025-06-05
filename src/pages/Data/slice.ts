@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { v2Fetch } from '@/util/httpUtil.ts';
+import { v2Fetch } from '@/util/httpUtil';
 
 interface CharacterState {
   payload: any[];
