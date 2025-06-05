@@ -47,6 +47,13 @@ const Dashboard: FC<DashboardProps> = (props: any) => {
                 ></i>
                 <Search
                   value={searchTerm}
+                  onSubmit={() => {
+                    setPage(1);
+                    onFilterApply({
+                      page: 1,
+                      name: searchTerm,
+                    });
+                  }}
                   onChangeHandler={(value: IObjectLiteral) => {
                     setSearchTerm(value?.target?.value);
                   }}

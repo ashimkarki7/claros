@@ -10,9 +10,9 @@ const Search: React.FC<SearchProps> = ({
   disabled = false,
   onSubmit,
 }) => {
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      onSubmit?.(e);
+  const handleKeyDown = (event: any) => {
+    if (event.key === 'Enter') {
+      onSubmit(event?.target?.value);
     }
   };
 
