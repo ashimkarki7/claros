@@ -16,6 +16,16 @@ const DashboardContainer = (props: IObjectLiteral) => {
     return dispatch(leadFormSlice.fetchCharacters(formData));
   };
 
-  return <DashboardComponent fetchCharacters={fetchCharacters} {...props} />;
+  const cleanCharacter = (): any => {
+    return dispatch(leadFormSlice.cleanCharacter());
+  };
+
+  return (
+    <DashboardComponent
+      fetchCharacters={fetchCharacters}
+      cleanCharacter={cleanCharacter}
+      {...props}
+    />
+  );
 };
 export default DashboardContainer;

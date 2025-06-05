@@ -19,6 +19,13 @@ const Sidebar: React.FC = () => {
         >
           <i className="bi bi-card-list"></i> Data
         </NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+        >
+          <i className="bi bi-gear"></i>
+          Settings
+        </NavLink>
       </nav>
     </div>
   );
