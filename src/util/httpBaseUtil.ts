@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const httpBase = () => {
-  const baseURL3001 = 'http://localhost:3000';
+  const baseURL3001 = 'https://';
 
   const V2Headers = {
     Accept: '**',

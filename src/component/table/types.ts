@@ -4,7 +4,9 @@ import type { IObjectLiteral, mainHeaders } from '@/types/type.ts';
 export type TableProps = {
   rowData?: IObjectLiteral[];
   headers?: mainHeaders[];
+  tableStyles?: IObjectLiteral;
   onChangeHandler?: (event: ChangeEvent<HTMLElement>) => void;
   className?: string;
   disabled?: boolean;
+  loading?: boolean;
 };

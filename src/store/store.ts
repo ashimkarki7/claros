@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 import {
   persistStore,
   persistReducer,
@@ -13,7 +14,8 @@ import storage from 'redux-persist/lib/storage';
 
 import userReducer from '@/pages/Login/slice.ts';
 import characterReducer from '@/pages/Dashboard/slice.ts';
-import { combineReducers } from 'redux';
+
+import episodeIdReducer from '@pages/Data/slice.ts';
 
 const userPersistConfig = {
   key: 'user',
@@ -23,6 +25,7 @@ const userPersistConfig = {
 const rootReducer = combineReducers({
   user: persistReducer(userPersistConfig, userReducer),
   character: characterReducer,
+  episode: episodeIdReducer,
 });
 
 export const store = configureStore({

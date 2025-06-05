@@ -26,7 +26,9 @@ export const mainRoutesList: RouteItem[] = [
     key: 3,
     name: 'Data',
     path: '/data',
-    LazyComponent: lazy(() => import('@/pages/Data/Dashboard.tsx')),
+    LazyComponent: lazy(
+      () => import('@pages/Data/Container/DataContainer.tsx')
+    ),
     exact: true,
     isPrivate: true,
   },

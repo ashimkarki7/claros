@@ -6,15 +6,17 @@ import Button from '@component/button';
 import TableComponent from '@component/table';
 import { characterTableHeaders } from '@pages/Dashboard/enum/characterEnum.tsx';
 
-interface LoginFormProps {
+interface DashboardProps {
   users?: IObjectLiteral;
   characters?: IObjectLiteral;
-  fetchCharacters: (formData: number) => void;
+  charactersLoading?: boolean;
+  fetchCharacters: (formData: IObjectLiteral) => void;
   cleanCharacter: () => void;
 }
 
-const Dashboard: FC<LoginFormProps> = (props: any) => {
-  const { fetchCharacters, characters, cleanCharacter } = props;
+const Dashboard: FC<DashboardProps> = (props: any) => {
+  const { fetchCharacters, characters, cleanCharacter, charactersLoading } =
+    props;
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [page, setPage] = useState<number>(1);
 
@@ -77,15 +79,19 @@ const Dashboard: FC<LoginFormProps> = (props: any) => {
           </div>
           <div className="table-responsive">
             <TableComponent
+              loading={charactersLoading}
               rowData={characters?.results}
               headers={characterTableHeaders}
-              className="table table-striped"
+              className="table table-bordered border-dark table-centered table-hover  table-striped"
+              tableStyles={{
+                headerStyles: `table-dark`,
+              }}
             />
           </div>
           <div id={'Pagination'}>
-            <ul className="pagination justify-content-start flex-wrap">
+            <ul className="pagination justify-content-start flex-wrap gap-2">
               {characters?.info?.pages &&
-                Array.from({ length: characters?.info?.pages }, (_, index) => (
+                Array.from({ length: 10 }, (_, index) => (
                   <li
                     key={index}
                     className={`page-item ${index + 1 === page ? 'active' : ''}`}
@@ -97,7 +103,13 @@ const Dashboard: FC<LoginFormProps> = (props: any) => {
                       });
                     }}
                   >
-                    <button className="page-link">{index + 1}</button>
+                    <Button
+                      onClickHandler={() => {
+                        console.log('fte');
+                      }}
+                      title={`${index + 1}`}
+                      className="page-link"
+                    />
                   </li>
                 ))}
             </ul>

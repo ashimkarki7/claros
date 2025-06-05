@@ -13,25 +13,20 @@ const initialState: CharacterState = {
   loading: true,
 };
 
-export const fetchCharacters = createAsyncThunk(
-  'characters/fetch',
+export const fetchEpisodeByID = createAsyncThunk(
+  'episodeId/fetch',
   (formData: any, { rejectWithValue }) => {
     let queryParams = '';
     Object.keys(formData).forEach((key) => {
       switch (key) {
-        case 'page': {
-          if (formData[key]) queryParams += `page=${formData[key]}`;
-          break;
-        }
-        case 'name': {
-          if (formData[key])
-            queryParams += `&name=${encodeURIComponent(formData[key])}`;
+        case 'id': {
+          if (formData[key]) queryParams += `${formData[key]}`;
           break;
         }
       }
     });
 
-    return v2Fetch(`rickandmortyapi.com/api/character?${queryParams}`)
+    return v2Fetch(`rickandmortyapi.com/api/episode/${queryParams}`)
       .then((response: any) => {
         if (response.status === 200) {
           return Promise.resolve(response?.data);
@@ -46,28 +41,28 @@ export const fetchCharacters = createAsyncThunk(
   }
 );
 
-export const characterSlice = createSlice({
-  name: 'characters',
+export const episodeIdSlice = createSlice({
+  name: 'episodeId',
   initialState: initialState,
   reducers: {
-    cleanCharacter: (state) => {
+    cleanEpisodeID: (state) => {
       state.loading = false;
       state.payload = [];
       state.error = {};
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchCharacters.pending, (state) => {
+    builder.addCase(fetchEpisodeByID.pending, (state) => {
       state.loading = true;
       state.error = {};
       state.payload = [];
     });
 
-    builder.addCase(fetchCharacters.fulfilled, (state, action) => {
+    builder.addCase(fetchEpisodeByID.fulfilled, (state, action) => {
       state.loading = false;
       state.payload = action.payload;
     });
-    builder.addCase(fetchCharacters.rejected, (state, action) => {
+    builder.addCase(fetchEpisodeByID.rejected, (state, action) => {
       state.loading = false;
       state.payload = [];
       state.error = action.payload;
@@ -75,5 +70,5 @@ export const characterSlice = createSlice({
   },
 });
 
-export const { cleanCharacter } = characterSlice.actions;
-export default characterSlice.reducer;
+export const { cleanEpisodeID } = episodeIdSlice.actions;
+export default episodeIdSlice.reducer;
