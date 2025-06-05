@@ -21,7 +21,7 @@ const Header = () => {
             hasIconOnly={true}
             title={'bi bi-list'}
             className={`btn btn-sm btn-outline-secondary me-1`}
-            onClickHandler={(evt) => {
+            onClickHandler={() => {
               navigate('/');
             }}
           />
