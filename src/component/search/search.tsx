@@ -1,4 +1,4 @@
-import React, { type ChangeEvent } from 'react';
+import React, { type ChangeEvent, type KeyboardEvent } from 'react';
 import type { SearchProps } from './types.ts';
 const Search: React.FC<SearchProps> = ({
   value,
@@ -8,13 +8,21 @@ const Search: React.FC<SearchProps> = ({
   onChangeHandler,
   className = '',
   disabled = false,
+  onSubmit,
 }) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onSubmit?.(e);
+    }
+  };
+
   return (
     <input
       value={value}
       type={type}
       placeholder={placeholder}
       onChange={(event: ChangeEvent<HTMLElement>) => onChangeHandler(event)}
+      onKeyDown={handleKeyDown}
       id={`search_${title}`}
       disabled={disabled}
       className={` ${className}`}

@@ -26,7 +26,7 @@ export const fetchEpisodeByID = createAsyncThunk(
       }
     });
 
-    return v2Fetch(`rickandmortyapi.com/api/episode/${queryParams}`)
+    return v2Fetch(`/episode/${queryParams}`)
       .then((response: any) => {
         if (response.status === 200) {
           return Promise.resolve(response?.data);

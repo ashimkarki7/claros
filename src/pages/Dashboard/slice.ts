@@ -31,7 +31,7 @@ export const fetchCharacters = createAsyncThunk(
       }
     });
 
-    return v2Fetch(`rickandmortyapi.com/api/character?${queryParams}`)
+    return v2Fetch(`/character?${queryParams}`)
       .then((response: any) => {
         if (response.status === 200) {
           return Promise.resolve(response?.data);

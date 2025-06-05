@@ -6,6 +6,7 @@ export type SearchProps = {
   type?: string;
   placeholder?: string;
   onChangeHandler: (event: ChangeEvent<HTMLElement>) => void;
+  onSubmit: (event: ChangeEvent<HTMLElement>) => void;
   className?: string;
   disabled?: boolean;
 };
